@@ -1,0 +1,10 @@
+% Facts
+parent(mary, john).
+parent(john, alice).
+parent(peter, john).
+
+% Rules
+grandparent(X, Y) :- parent(X, Z), parent(Z, Y).
+
+% Queries
+% You can query whether someone is a grandparent, and Prolog will use backward chaining.
