@@ -1,7 +1,12 @@
-sum(1, N) :-
-   N = 1.
+% Base case: the sum from 1 to 0 is 0.
+sum_to_n(0, 0).
 
-sum(N, Total) :-
-   N1 is N - 1,
-   sum(N1, RemainingTotal),
-   Total is N + RemainingTotal.
+% Recursive case: sum from 1 to N is N + sum from 1 to (N-1).
+sum_to_n(N, Sum) :-
+    N > 0,
+    N1 is N - 1,
+    sum_to_n(N1, Sum1),
+    Sum is N + Sum1.
+
+% Example query:
+% ?- sum_to_n(5, Sum).  % Sum will be 15 (1+2+3+4+5)
